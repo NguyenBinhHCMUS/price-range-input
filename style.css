@@ -1,0 +1,77 @@
+body {
+  background-color: #e5ded8;
+}
+
+.group {
+  position: relative;
+  width: 300px;
+  height: 10px;
+  margin: 100px auto;
+
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px #9d968f;
+  background-color: #cbc2b9;
+}
+
+.range-input input {
+  -webkit-appearance: none; /*bo các thuộc tính mặc định thẻ input*/
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  margin: 0;
+
+  transform: translateY(2px);
+  background-color: transparent;
+  pointer-events: none;
+}
+.range-input input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 17px;
+  height: 17px;
+  background-color: #98c787;
+
+  border-radius: 50%;
+  border: 3px solid #cae08e;
+  box-shadow: inset 0 1px #6f9163, 0 0 1px #6f9163;
+  pointer-events: auto;
+}
+
+.progress {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  right: 0;
+
+  /* Hiệu ứng màu theo ving lập */
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #c7db6b 0,
+    #c7db6c 3px,
+    #b7ca63 3px,
+    #b7ca63 6px
+  );
+  background-attachment: fixed;
+  border-radius: 5px;
+}
+
+.range-text__min,
+.range-text__max {
+  position: absolute;
+  top: 16px;
+  width: 20px;
+  padding: 5px;
+
+  background-color: #6f9163;
+  color: #eee;
+  font-size: 7px;
+  text-align: center;
+  border-radius: 3px;
+}
+.range-text__min {
+  left: 0;
+  transform: translateX(-50%);
+}
+.range-text__max {
+  right: 0;
+  transform: translateX(50%);
+}

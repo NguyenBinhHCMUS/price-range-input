@@ -1,0 +1,32 @@
+let rangeInput = document.querySelectorAll(".range-input input");
+let rangeTextMin = document.querySelector(".range-text__min");
+let rangeTextMax = document.querySelector(".range-text__max");
+let progress = document.querySelector(".progress");
+let priceMax = rangeInput[0].max;
+let priceGap = 1000;
+
+rangeInput.forEach((input) => {
+  input.addEventListener("input", (event) => {
+    let minVal = parseInt(rangeInput[0].value);
+    let maxVal = parseInt(rangeInput[1].value);
+
+    if (maxVal - minVal < priceGap) {
+      if (event.target.className === "range-min") {
+        minVal = rangeInput[0].value = maxVal - priceGap;
+      } else {
+        maxVal = rangeInput[1].value = minVal + priceGap;
+      }
+    }
+
+    let positionMin = (minVal / priceMax) * 100;
+    let positionMax = 100 - (maxVal / priceMax) * 100;
+
+    progress.style.left = positionMin + "%";
+    progress.style.right = positionMax + "%";
+
+    rangeTextMin.style.left = positionMin + "%";
+    rangeTextMax.style.right = positionMax + "%";
+    rangeTextMin.innerText = minVal.toLocaleString();
+    rangeTextMax.innerText = maxVal.toLocaleString();
+  });
+});
