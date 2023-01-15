@@ -42,7 +42,7 @@ body {
   left: 0;
   right: 0;
 
-  /* Hiệu ứng màu theo ving lập */
+  /* Hiệu ứng màu theo vong lập */
   background-image: repeating-linear-gradient(
     -45deg,
     #c7db6b 0,
@@ -50,7 +50,7 @@ body {
     #b7ca63 3px,
     #b7ca63 6px
   );
-  background-attachment: fixed;
+  background-attachment: fixed; /*Không hiệu ứng khi thay đổi width*/
   border-radius: 5px;
 }
 
